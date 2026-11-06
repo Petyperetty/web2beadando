@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Middleware\Auth2;
+use App\Http\Controllers\MoziController;
 
-Route::get('/', function () {return Inertia::render('welcome');})->name('home');
+Route::get('/', [MoziController::class, 'index']);
+Route::get('/mozi/{id}', [MoziController::class, 'show']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {return Inertia::render('dashboard');})->name('dashboard');
