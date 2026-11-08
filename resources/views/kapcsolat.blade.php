@@ -9,9 +9,12 @@
         </ul>
     </div>
     @endif
-    <form method="POST" action="{{ route('uzenetkuldes') }}">
+    <form method="POST" action="{{ route('kapcsolat') }}">
         @csrf
         <label>Az üzenet tárgya</label><input name="targy" />
+        @guest
+        <label>email</label><input type="email" name="guest_email" />
+        @endguest
         <label>Üzenet</label>
         <textarea name="szoveg"></textarea>
         <button type="submit">Üzenetküldés</button>

@@ -63,12 +63,9 @@
 								<li><a href="{{ route('crud') }}">CRUD</a></li>
 							@endif
 							<li><a href="{{ route('kapcsolat') }}">Kapcsolat</a></li>
-							@if(Auth::check() && Auth::user()->role == '2')
-								<li><a href="{{ route('uzenetkuldes') }}">Üzenetküldés</a></li>
-							@endif
-							@if(Auth::check() && Auth::user()->role == '1')
+							@auth
 								<li><a href="{{ route('uzenetek') }}">Üzenetek</a></li>
-							@endif
+							@endauth
 						</ul>
 					</nav>
 

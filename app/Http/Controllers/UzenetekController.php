@@ -12,6 +12,7 @@ class UzenetekController extends Controller
 
         Uzenet::create([
             'user_id' => Auth::id(),
+            'guest_email' => $request->guest_email,
             'targy' => $request->targy,
             'szoveg' => $request->szoveg
         ]);

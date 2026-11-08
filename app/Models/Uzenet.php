@@ -10,5 +10,5 @@ class Uzenet extends Model
     use HasFactory;
 
     protected $table = 'uzenetek';
-    protected $fillable = ['user_id', 'targy', 'szoveg'];
+    protected $fillable = ['user_id', 'guest_email', 'targy', 'szoveg'];
 }
