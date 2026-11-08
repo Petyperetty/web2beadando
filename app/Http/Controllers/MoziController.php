@@ -10,13 +10,13 @@ use App\Models\Mozi; // A modell mappa hozzáadása
 
 class MoziController extends Controller
 {
-    public function index(){
+    public function adatbazis(){
 
         // Adatbázis lekérdezés a Mozi modell alapján. Visszaadja az összes sort.
         $mozik = Mozi::all();
         // Visszaadja a mozik tömböt a mozik.blade nézetnek.
         // A compact() függvény egy tömböt állít össze a View-nak a $mozik változóból.
-        return view('mozik', compact('mozik'));
+        return view('adatbazis', compact('mozik'));
     }
 
     public function show(int $id){

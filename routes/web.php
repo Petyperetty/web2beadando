@@ -2,11 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Middleware\Auth2;
 use App\Http\Controllers\MoziController;
 
-Route::get('/', [MoziController::class, 'index']);
-Route::get('/mozi/{id}', [MoziController::class, 'show']);
+Route::view('/', 'fooldal')->name('fooldal');
+Route::view('/diagram', 'diagram')->name('diagram');
+Route::view('/bejelentkezes', 'bejelentkezes')->name('bejelentkezes');
+Route::view('/regisztracio', 'register')->name('regisztracio');
+Route::view('/crud', 'crud')->name('crud');
+Route::view('/kapcsolat', 'kapcsolat')->name('kapcsolat');
+Route::view('/uzenetkuldes', 'uzenetkuldes')->name('uzenetkuldes');
+Route::get('/adatbazis', [MoziController::class, 'adatbazis'])->name('adatbazis');
+Route::get('/adatbazis/{id}', [MoziController::class, 'show']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {return Inertia::render('dashboard');})->name('dashboard');

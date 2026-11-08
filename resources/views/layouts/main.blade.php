@@ -15,7 +15,7 @@
 	<body class="is-preload">
 		<!-- Wrapper -->
 			<div id="wrapper">
-				
+
 				<!-- Header -->
 					<header id="header">
 						<div class="inner">
@@ -39,11 +39,33 @@
 					<nav id="menu">
 						<h2>Menu</h2>
 						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Ipsum veroeros</a></li>
-							<li><a href="generic.html">Tempus etiam</a></li>
-							<li><a href="generic.html">Consequat dolor</a></li>
-							<li><a href="elements.html">Elements</a></li>
+							<li><a href="{{ route('fooldal') }}">Főoldal</a></li>
+							<li><a href="{{ route('adatbazis') }}">Adatbázis</a></li>
+							<li><a href="{{ route('diagram') }}">Diagram</a></li>							
+							@guest
+							<li><a href="{{ route('bejelentkezes') }}">Bejelentkezés</a></li>
+							@endguest
+							@auth
+							<li>
+								<form method="POST" action="{{ route('logout') }}">
+									@csrf								
+									<a href="#" 
+									onclick="event.preventDefault(); this.closest('form').submit();">
+										Kijelentkezés
+									</a>
+								</form>
+							</li>
+							@endauth
+							@guest
+							<li><a href="{{ route('regisztracio') }}">Regisztráció</a></li>
+							@endguest
+							@if(Auth::check() && Auth::user()->role == '1')
+								<li><a href="{{ route('crud') }}">CRUD</a></li>
+							@endif
+							<li><a href="{{ route('kapcsolat') }}">Kapcsolat</a></li>
+							@if(Auth::check() && Auth::user()->role == '2')
+								<li><a href="{{ route('uzenetkuldes') }}">Üzenetküldés</a></li>
+							@endif
 						</ul>
 					</nav>
 
