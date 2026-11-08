@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\MoziController;
+use App\Http\Controllers\UzenetekController;
 
 Route::view('/', 'fooldal')->name('fooldal');
 Route::view('/diagram', 'diagram')->name('diagram');
@@ -10,7 +11,9 @@ Route::view('/bejelentkezes', 'bejelentkezes')->name('bejelentkezes');
 Route::view('/regisztracio', 'register')->name('regisztracio');
 Route::view('/crud', 'crud')->name('crud');
 Route::view('/kapcsolat', 'kapcsolat')->name('kapcsolat');
+Route::post('/uzenetkuldes', [UzenetekController::class, 'store']);
 Route::view('/uzenetkuldes', 'uzenetkuldes')->name('uzenetkuldes');
+Route::get('/uzenetek', [UzenetekController::class, 'show'])->name('uzenetek');
 Route::get('/adatbazis', [MoziController::class, 'adatbazis'])->name('adatbazis');
 Route::get('/adatbazis/{id}', [MoziController::class, 'show']);
 

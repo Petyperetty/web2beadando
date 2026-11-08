@@ -46,6 +46,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('fooldal')->with('status', 'Sikeres belépés!');
+        return redirect()->route('fooldal')->with('status', 'Sikeres regisztráció!');
     }
 }

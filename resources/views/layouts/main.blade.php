@@ -66,6 +66,9 @@
 							@if(Auth::check() && Auth::user()->role == '2')
 								<li><a href="{{ route('uzenetkuldes') }}">Üzenetküldés</a></li>
 							@endif
+							@if(Auth::check() && Auth::user()->role == '1')
+								<li><a href="{{ route('uzenetek') }}">Üzenetek</a></li>
+							@endif
 						</ul>
 					</nav>
 

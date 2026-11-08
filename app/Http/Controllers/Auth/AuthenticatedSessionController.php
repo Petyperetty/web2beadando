@@ -33,7 +33,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect('/');
+        return redirect()->route('fooldal')->with('status', 'Sikeres bejelentkezés!');
     }
 
     /**
@@ -46,6 +46,6 @@ class AuthenticatedSessionController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('fooldal')->with('status', 'Sikeres kijelentkezés!');
     }
 }

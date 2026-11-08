@@ -1,7 +1,10 @@
 @extends('layouts.main')
 @section('content')
     @if(session('status'))
-        <h2><b>{{ session('status') }}</h2>
+        <h2><b>{{ session('status') }}</b></h2>
+    @endif
+    @if(session('status') == 'Sikeres bejelentkezés!' && Auth::user()->role == 1)
+        <h2><b>Üdvözöllek admin!</b></h2>
     @endif
     <h2>Web 2 beadandó</h2>
     <p>Hanák Péter, GT4OUZ</p>
