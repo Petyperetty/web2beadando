@@ -9,13 +9,15 @@ Route::view('/', 'fooldal')->name('fooldal');
 Route::view('/diagram', 'diagram')->name('diagram');
 Route::view('/bejelentkezes', 'bejelentkezes')->name('bejelentkezes');
 Route::view('/regisztracio', 'register')->name('regisztracio');
-Route::view('/crud', 'crud')->name('crud');
 Route::view('/kapcsolat', 'kapcsolat')->name('kapcsolat');
 Route::post('/kapcsolat', [UzenetekController::class, 'store']);
+Route::delete('/del/{id}', [MoziController::class, 'del'])->name('mozi.torles');
+Route::PUT('/modify/{id}', [MoziController::class, 'modify'])->name('modify');
+Route::post('/modify/{id}', [MoziController::class, 'filmListById'])->name('mozi.modify');
 Route::view('/kapcsolat', 'kapcsolat')->name('kapcsolat');
 Route::get('/uzenetek', [UzenetekController::class, 'show'])->name('uzenetek');
-Route::get('/adatbazis', [MoziController::class, 'adatbazis'])->name('adatbazis');
-Route::get('/adatbazis/{id}', [MoziController::class, 'show']);
+Route::get('/mozik', [MoziController::class, 'mozik'])->name('mozik');
+Route::get('/mozik/{id}', [MoziController::class, 'show']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {return Inertia::render('dashboard');})->name('dashboard');

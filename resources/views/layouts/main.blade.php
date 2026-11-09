@@ -20,11 +20,6 @@
 					<header id="header">
 						<div class="inner">
 
-							<!-- Logo -->
-								<a href="index.html" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Phantom</span>
-								</a>
-
 							<!-- Nav -->
 								<nav>
 									<ul>
@@ -40,7 +35,7 @@
 						<h2>Menu</h2>
 						<ul>
 							<li><a href="{{ route('fooldal') }}">Főoldal</a></li>
-							<li><a href="{{ route('adatbazis') }}">Adatbázis</a></li>
+							<li><a href="{{ route('mozik') }}">Mozik</a></li>
 							<li><a href="{{ route('diagram') }}">Diagram</a></li>							
 							@guest
 							<li><a href="{{ route('bejelentkezes') }}">Bejelentkezés</a></li>
@@ -60,7 +55,7 @@
 							<li><a href="{{ route('regisztracio') }}">Regisztráció</a></li>
 							@endguest
 							@if(Auth::check() && Auth::user()->role == '1')
-								<li><a href="{{ route('crud') }}">CRUD</a></li>
+								<li><a href="{{ route('mozik') }}">CRUD</a></li>
 							@endif
 							<li><a href="{{ route('kapcsolat') }}">Kapcsolat</a></li>
 							@auth

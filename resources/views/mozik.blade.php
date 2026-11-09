@@ -9,7 +9,7 @@
                 <span class="image">
                     <img src="https://via.placeholder.com/300?text=%20"></img>
                 </span>                
-                <a href="/adatbazis/{{ $mozi->moziazon }}">
+                <a href="/mozik/{{ $mozi->moziazon }}">
                     <h2>{{ $mozi->mozinev }}</h2>
                     <div class="content">
                         <p>{{ $mozi->cim }}</p>
