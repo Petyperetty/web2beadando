@@ -15,7 +15,7 @@ class MoziController extends Controller
         $mozik = Mozi::all();
         // Visszaadja a mozik tömböt a mozik.blade nézetnek.
         // A compact() függvény egy tömböt állít össze a View-nak a $mozik változóból.
-        if(Auth::user()->role == 1)
+        if(Auth::user()?->role == 1)
             return view('crud', compact('mozik'));
         else
             return view('mozik', compact('mozik'));
