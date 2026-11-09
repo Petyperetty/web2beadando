@@ -44,4 +44,10 @@ class MoziController extends Controller
 
         return redirect()->route('mozik');
     }
+
+    public function diagram(){
+        $diagramAdatok = Mozi::withCount('filmek')->get();
+
+        return view('diagram', compact('diagramAdatok'));
+    }
 }

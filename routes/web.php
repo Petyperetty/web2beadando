@@ -6,7 +6,7 @@ use App\Http\Controllers\MoziController;
 use App\Http\Controllers\UzenetekController;
 
 Route::view('/', 'fooldal')->name('fooldal');
-Route::view('/diagram', 'diagram')->name('diagram');
+Route::get('/diagram', [MoziController::class, 'diagram'])->name('diagram');
 Route::view('/bejelentkezes', 'bejelentkezes')->name('bejelentkezes');
 Route::view('/regisztracio', 'register')->name('regisztracio');
 Route::view('/kapcsolat', 'kapcsolat')->name('kapcsolat');
